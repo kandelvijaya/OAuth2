@@ -1,0 +1,12 @@
+PODS:
+  - Kekka (0.5.0)
+
+DEPENDENCIES:
+  - Kekka
+
+SPEC CHECKSUMS:
+  Kekka: 2c7bc0f7334ac8ad4ec3aa1d87c7d76f6b05eae2
+
+PODFILE CHECKSUM: c6937a1a538fba29e17e3fd46159ae7dd3e1303b
+
+COCOAPODS: 1.3.1

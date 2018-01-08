@@ -10,6 +10,8 @@
 		2897E56320041B9100BEA454 /* OAuth2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2897E55920041B9100BEA454 /* OAuth2.framework */; };
 		2897E57B20041BCD00BEA454 /* OAuth2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2897E57820041BBA00BEA454 /* OAuth2Tests.swift */; };
 		2897E57C20041BD000BEA454 /* OAuth2FileBasedTokenStorageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2897E57720041BBA00BEA454 /* OAuth2FileBasedTokenStorageServiceTests.swift */; };
+		BBC8402EB6422FA71FFA0CA5 /* Pods_OAuth2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F24EF49C027692920D1F2D17 /* Pods_OAuth2Tests.framework */; };
+		FFDD24709EB9C7F6D50A26A4 /* Pods_OAuth2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98194F91669782FD19D13FC7 /* Pods_OAuth2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,12 @@
 		2897E57820041BBA00BEA454 /* OAuth2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2Tests.swift; sourceTree = "<group>"; };
 		2897E57920041BBA00BEA454 /* OAuth2AccessTokenStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2AccessTokenStorageService.swift; sourceTree = "<group>"; };
 		2897E57A20041BBA00BEA454 /* OAuth2NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2NetworkService.swift; sourceTree = "<group>"; };
+		4062C6A1915FC47EE6B30B7A /* Pods-OAuth2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OAuth2.release.xcconfig"; path = "Pods/Target Support Files/Pods-OAuth2/Pods-OAuth2.release.xcconfig"; sourceTree = "<group>"; };
+		478D2A9244694C615AF5A03E /* Pods-OAuth2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OAuth2Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OAuth2Tests/Pods-OAuth2Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		5DC56855FC415CB698366FC9 /* Pods-OAuth2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OAuth2Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OAuth2Tests/Pods-OAuth2Tests.release.xcconfig"; sourceTree = "<group>"; };
+		7387F06AAFE82DD58AC67195 /* Pods-OAuth2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OAuth2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OAuth2/Pods-OAuth2.debug.xcconfig"; sourceTree = "<group>"; };
+		98194F91669782FD19D13FC7 /* Pods_OAuth2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OAuth2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F24EF49C027692920D1F2D17 /* Pods_OAuth2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OAuth2Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFDD24709EB9C7F6D50A26A4 /* Pods_OAuth2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,18 +58,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				2897E56320041B9100BEA454 /* OAuth2.framework in Frameworks */,
+				BBC8402EB6422FA71FFA0CA5 /* Pods_OAuth2Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C1AF34A114E701DEDCB8982 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				98194F91669782FD19D13FC7 /* Pods_OAuth2.framework */,
+				F24EF49C027692920D1F2D17 /* Pods_OAuth2Tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2897E54F20041B9100BEA454 = {
 			isa = PBXGroup;
 			children = (
 				2897E55B20041B9100BEA454 /* OAuth2 */,
 				2897E56620041B9100BEA454 /* OAuth2Tests */,
 				2897E55A20041B9100BEA454 /* Products */,
+				E0DECA9B66F4618B4A925418 /* Pods */,
+				0C1AF34A114E701DEDCB8982 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +117,17 @@
 			path = OAuth2Tests;
 			sourceTree = "<group>";
 		};
+		E0DECA9B66F4618B4A925418 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7387F06AAFE82DD58AC67195 /* Pods-OAuth2.debug.xcconfig */,
+				4062C6A1915FC47EE6B30B7A /* Pods-OAuth2.release.xcconfig */,
+				478D2A9244694C615AF5A03E /* Pods-OAuth2Tests.debug.xcconfig */,
+				5DC56855FC415CB698366FC9 /* Pods-OAuth2Tests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -113,10 +145,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2897E56D20041B9100BEA454 /* Build configuration list for PBXNativeTarget "OAuth2" */;
 			buildPhases = (
+				2697C21AC4233C4BD8FC8362 /* [CP] Check Pods Manifest.lock */,
 				2897E55420041B9100BEA454 /* Sources */,
 				2897E55520041B9100BEA454 /* Frameworks */,
 				2897E55620041B9100BEA454 /* Headers */,
 				2897E55720041B9100BEA454 /* Resources */,
+				4C2A2902B0077D4EBB7CE635 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,9 +165,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2897E57020041B9100BEA454 /* Build configuration list for PBXNativeTarget "OAuth2Tests" */;
 			buildPhases = (
+				58BB6132AA6E28F5E2F91A91 /* [CP] Check Pods Manifest.lock */,
 				2897E55E20041B9100BEA454 /* Sources */,
 				2897E55F20041B9100BEA454 /* Frameworks */,
 				2897E56020041B9100BEA454 /* Resources */,
+				737F991A84DB116D5B2DA4F4 /* [CP] Embed Pods Frameworks */,
+				7C938435AB4A99EE1B5D6976 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -199,6 +236,90 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2697C21AC4233C4BD8FC8362 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OAuth2-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4C2A2902B0077D4EBB7CE635 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OAuth2/Pods-OAuth2-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		58BB6132AA6E28F5E2F91A91 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OAuth2Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		737F991A84DB116D5B2DA4F4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OAuth2Tests/Pods-OAuth2Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7C938435AB4A99EE1B5D6976 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OAuth2Tests/Pods-OAuth2Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2897E55420041B9100BEA454 /* Sources */ = {
@@ -343,6 +464,7 @@
 		};
 		2897E56E20041B9100BEA454 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7387F06AAFE82DD58AC67195 /* Pods-OAuth2.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -364,6 +486,7 @@
 		};
 		2897E56F20041B9100BEA454 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4062C6A1915FC47EE6B30B7A /* Pods-OAuth2.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -385,6 +508,7 @@
 		};
 		2897E57120041B9100BEA454 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 478D2A9244694C615AF5A03E /* Pods-OAuth2Tests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = OAuth2Tests/Info.plist;
@@ -398,6 +522,7 @@
 		};
 		2897E57220041B9100BEA454 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DC56855FC415CB698366FC9 /* Pods-OAuth2Tests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = OAuth2Tests/Info.plist;
