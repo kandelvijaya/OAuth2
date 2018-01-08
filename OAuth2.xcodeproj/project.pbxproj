@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2897E56320041B9100BEA454 /* OAuth2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2897E55920041B9100BEA454 /* OAuth2.framework */; };
-		2897E56820041B9100BEA454 /* OAuth2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2897E56720041B9100BEA454 /* OAuth2Tests.swift */; };
-		2897E56A20041B9100BEA454 /* OAuth2.h in Headers */ = {isa = PBXBuildFile; fileRef = 2897E55C20041B9100BEA454 /* OAuth2.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2897E57B20041BCD00BEA454 /* OAuth2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2897E57820041BBA00BEA454 /* OAuth2Tests.swift */; };
+		2897E57C20041BD000BEA454 /* OAuth2FileBasedTokenStorageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2897E57720041BBA00BEA454 /* OAuth2FileBasedTokenStorageServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,11 +24,16 @@
 
 /* Begin PBXFileReference section */
 		2897E55920041B9100BEA454 /* OAuth2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OAuth2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2897E55C20041B9100BEA454 /* OAuth2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OAuth2.h; sourceTree = "<group>"; };
 		2897E55D20041B9100BEA454 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2897E56220041B9100BEA454 /* OAuth2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OAuth2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2897E56720041B9100BEA454 /* OAuth2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2Tests.swift; sourceTree = "<group>"; };
 		2897E56920041B9100BEA454 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2897E57320041BBA00BEA454 /* OAuth2Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2Config.swift; sourceTree = "<group>"; };
+		2897E57420041BBA00BEA454 /* OAuth2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2.swift; sourceTree = "<group>"; };
+		2897E57520041BBA00BEA454 /* OAuth2AccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2AccessToken.swift; sourceTree = "<group>"; };
+		2897E57720041BBA00BEA454 /* OAuth2FileBasedTokenStorageServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2FileBasedTokenStorageServiceTests.swift; sourceTree = "<group>"; };
+		2897E57820041BBA00BEA454 /* OAuth2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2Tests.swift; sourceTree = "<group>"; };
+		2897E57920041BBA00BEA454 /* OAuth2AccessTokenStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2AccessTokenStorageService.swift; sourceTree = "<group>"; };
+		2897E57A20041BBA00BEA454 /* OAuth2NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +76,11 @@
 		2897E55B20041B9100BEA454 /* OAuth2 */ = {
 			isa = PBXGroup;
 			children = (
-				2897E55C20041B9100BEA454 /* OAuth2.h */,
+				2897E57420041BBA00BEA454 /* OAuth2.swift */,
+				2897E57520041BBA00BEA454 /* OAuth2AccessToken.swift */,
+				2897E57920041BBA00BEA454 /* OAuth2AccessTokenStorageService.swift */,
+				2897E57320041BBA00BEA454 /* OAuth2Config.swift */,
+				2897E57A20041BBA00BEA454 /* OAuth2NetworkService.swift */,
 				2897E55D20041B9100BEA454 /* Info.plist */,
 			);
 			path = OAuth2;
@@ -80,7 +89,8 @@
 		2897E56620041B9100BEA454 /* OAuth2Tests */ = {
 			isa = PBXGroup;
 			children = (
-				2897E56720041B9100BEA454 /* OAuth2Tests.swift */,
+				2897E57720041BBA00BEA454 /* OAuth2FileBasedTokenStorageServiceTests.swift */,
+				2897E57820041BBA00BEA454 /* OAuth2Tests.swift */,
 				2897E56920041B9100BEA454 /* Info.plist */,
 			);
 			path = OAuth2Tests;
@@ -93,7 +103,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2897E56A20041B9100BEA454 /* OAuth2.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +212,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2897E56820041B9100BEA454 /* OAuth2Tests.swift in Sources */,
+				2897E57C20041BD000BEA454 /* OAuth2FileBasedTokenStorageServiceTests.swift in Sources */,
+				2897E57B20041BCD00BEA454 /* OAuth2Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +352,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = OAuth2/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kandelvijaya.OAuth2;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -362,6 +373,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = OAuth2/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kandelvijaya.OAuth2;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";

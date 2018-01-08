@@ -1,0 +1,28 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/vkandel/Desktop/Q4 NotUrgent & NotImp/TrialProjects/OAuth2/Build/Products/Debug-iphonesimulator/OAuth2.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "OAuth2-Swift.h",
+          'external-contents': "/Users/vkandel/Desktop/Q4 NotUrgent & NotImp/TrialProjects/OAuth2/Build/Products/Debug-iphonesimulator/OAuth2.framework/Headers/OAuth2-Swift.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/vkandel/Desktop/Q4 NotUrgent & NotImp/TrialProjects/OAuth2/Build/Products/Debug-iphonesimulator/OAuth2.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/vkandel/Desktop/Q4 NotUrgent & NotImp/TrialProjects/OAuth2/Build/Intermediates/OAuth2.build/Debug-iphonesimulator/OAuth2.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}
