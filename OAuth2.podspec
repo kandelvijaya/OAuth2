@@ -4,7 +4,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "OAuth2"
-  s.version      = "0.2.7"
+  s.version      = "0.2.8"
   s.summary      = "OAuth2 facilitates API interaction with simple Config"
 
   s.description  = <<-DESC
@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
   s.source_files  = 'OAuth2/**/*.{swift,h,m}'
   s.xcconfig = { 'SWIFT_INCLUDE_PATHS' =>
                  '$(SRCROOT)/OAuth2/Crypto' }
-  s.resources = 'OAuth2/Crypto/*.{h,modulemap}'
+  s.preserve_paths = 'OAuth2/Crypto/*.{h,modulemap}'
 
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4' }
 
