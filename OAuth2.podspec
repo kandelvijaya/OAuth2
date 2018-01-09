@@ -4,7 +4,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "OAuth2"
-  s.version      = "0.2.6"
+  s.version      = "0.2.7"
   s.summary      = "OAuth2 facilitates API interaction with simple Config"
 
   s.description  = <<-DESC
