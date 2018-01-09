@@ -9,6 +9,5 @@
 #ifndef OAuth2_h
 #define OAuth2_h
 
-@import Crypto;
 
 #endif /* OAuth2_h */
