@@ -110,8 +110,8 @@ extension OAuth2 {
             q.removeSubrange(q.range(of: "code=")!)
             return q
         } else if let range = url.absoluteString.range(of: "(?<=\\?code=).*", options: .regularExpression, range: nil, locale: nil) {
-            let str = url.absoluteString.substring(with: range)
-            let code = str.split(separator: "?").first.map(String.init) ?? str
+            let str = url.absoluteString[range]
+            let code = str.split(separator: "?").first.map(String.init) ?? String(str)
             return code
         } else {
             // Dont know where the code is or if there is a code

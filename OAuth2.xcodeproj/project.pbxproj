@@ -84,7 +84,6 @@
 		2897E54F20041B9100BEA454 = {
 			isa = PBXGroup;
 			children = (
-				282B127320043D01005AD843 /* CCommonCrypto */,
 				2897E55B20041B9100BEA454 /* OAuth2 */,
 				2897E56620041B9100BEA454 /* OAuth2Tests */,
 				2897E55A20041B9100BEA454 /* Products */,
@@ -105,6 +104,7 @@
 		2897E55B20041B9100BEA454 /* OAuth2 */ = {
 			isa = PBXGroup;
 			children = (
+				282B127320043D01005AD843 /* CCommonCrypto */,
 				2897E57420041BBA00BEA454 /* OAuth2.swift */,
 				2897E57520041BBA00BEA454 /* OAuth2AccessToken.swift */,
 				2897E57920041BBA00BEA454 /* OAuth2AccessTokenStorageService.swift */,
@@ -506,7 +506,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kandelvijaya.OAuth2;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "${SRCROOT}/CCommonCrypto";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/OAuth2/CCommonCrypto";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -529,7 +529,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kandelvijaya.OAuth2;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "${SRCROOT}/CCommonCrypto";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/OAuth2/CCommonCrypto";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
