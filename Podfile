@@ -5,6 +5,7 @@ target 'OAuth2' do
 
   # Pods for OAuth2
   pod 'Kekka'
+  pod 'CommonCryptoModule'
 
   target 'OAuth2Tests' do
     inherit! :search_paths
