@@ -9,6 +9,6 @@
 #ifndef OAuth2_h
 #define OAuth2_h
 
-@import CCommonCryptoBridge;
+@import Crypto;
 
 #endif /* OAuth2_h */

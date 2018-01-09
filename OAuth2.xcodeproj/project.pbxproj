@@ -34,8 +34,8 @@
 		0B9EA102DE0A9B10202BED38 /* Pods-OAuth2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OAuth2.release.xcconfig"; path = "Pods/Target Support Files/Pods-OAuth2/Pods-OAuth2.release.xcconfig"; sourceTree = "<group>"; };
 		12A4B00CA0F8E84F61F1CCEE /* Pods_OAuth2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OAuth2Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		145BB7DE3E0A4BB2E62B6D51 /* Pods-OAuth2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OAuth2Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OAuth2Tests/Pods-OAuth2Tests.release.xcconfig"; sourceTree = "<group>"; };
-		283DC47D200563BB001C05F1 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
-		283DC47E20056878001C05F1 /* CCommonCryptoBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCommonCryptoBridge.h; sourceTree = "<group>"; };
+		283DC48020056CA3001C05F1 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		283DC48120056CBD001C05F1 /* Crypto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Crypto.h; sourceTree = "<group>"; };
 		2897E55920041B9100BEA454 /* OAuth2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OAuth2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2897E55D20041B9100BEA454 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2897E56220041B9100BEA454 /* OAuth2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OAuth2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,13 +74,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		283DC47C20056386001C05F1 /* CCommonCryptoBridge */ = {
+		283DC47F20056C94001C05F1 /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
-				283DC47D200563BB001C05F1 /* module.modulemap */,
-				283DC47E20056878001C05F1 /* CCommonCryptoBridge.h */,
+				283DC48020056CA3001C05F1 /* module.modulemap */,
+				283DC48120056CBD001C05F1 /* Crypto.h */,
 			);
-			path = CCommonCryptoBridge;
+			path = Crypto;
 			sourceTree = "<group>";
 		};
 		2897E54F20041B9100BEA454 = {
@@ -106,7 +106,7 @@
 		2897E55B20041B9100BEA454 /* OAuth2 */ = {
 			isa = PBXGroup;
 			children = (
-				283DC47C20056386001C05F1 /* CCommonCryptoBridge */,
+				283DC47F20056C94001C05F1 /* Crypto */,
 				2897E57420041BBA00BEA454 /* OAuth2.swift */,
 				2897E57520041BBA00BEA454 /* OAuth2AccessToken.swift */,
 				2897E57920041BBA00BEA454 /* OAuth2AccessTokenStorageService.swift */,
@@ -509,7 +509,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kandelvijaya.OAuth2;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/OAuth2/CCommonCryptoBridge";
+				SWIFT_INCLUDE_PATHS = "\"$(SRCROOT)/OAuth2/Crypto\"";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -533,7 +533,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kandelvijaya.OAuth2;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/OAuth2/CCommonCryptoBridge";
+				SWIFT_INCLUDE_PATHS = "\"$(SRCROOT)/OAuth2/Crypto\"";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
