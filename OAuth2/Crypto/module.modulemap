@@ -1,4 +1,4 @@
-module Crypto {
+module Crypto [system] {
     header "Crypto.h"
     export *
 }
