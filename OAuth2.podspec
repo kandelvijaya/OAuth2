@@ -28,10 +28,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/kandelvijaya/OAuth2.git", :tag => "#{s.version}" }
 
   s.source_files  = 'OAuth2/**/*.{swift,h,m,modulemap}'
-  s.xcconfig = { 'SWIFT_INCLUDE_PATHS' =>
-                 '$(SRCROOT)/OAuth2/Crypto,$(PODS_TARGET_SRCROOT)/OAuth2/Crypto' }
-  s.preserve_paths = 'OAuth2/Crypto/*.{h,modulemap}'
-
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4' }
 
   s.dependency "Kekka", "~> 0.6"
