@@ -27,7 +27,11 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "9.0"
   s.source       = { :git => "https://github.com/kandelvijaya/OAuth2.git", :tag => "#{s.version}" }
 
-  s.source_files  = 'OAuth2/**/*'
+  s.source_files  = 'OAuth2/**/*.{swift,h,m}'
+  s.xcconfig = { 'SWIFT_INCLUDE_PATHS' =>
+                 '$(PODS_TARGET_SRCROOT)/OAuth2/CCommonCryptoBridge' }
+  s.resources = 'OAuth2/CCommonCryptoBridge/*.{h,modulemap}'
+
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4' }
 
   s.dependency "Kekka", "~> 0.6"

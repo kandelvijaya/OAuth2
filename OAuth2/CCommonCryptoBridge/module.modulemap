@@ -1,0 +1,4 @@
+module CCommonCryptoBridge {
+    header "CCommonCryptoBridge.h"
+    export *
+}
