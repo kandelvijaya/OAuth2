@@ -34,7 +34,6 @@
 		0B9EA102DE0A9B10202BED38 /* Pods-OAuth2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OAuth2.release.xcconfig"; path = "Pods/Target Support Files/Pods-OAuth2/Pods-OAuth2.release.xcconfig"; sourceTree = "<group>"; };
 		12A4B00CA0F8E84F61F1CCEE /* Pods_OAuth2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OAuth2Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		145BB7DE3E0A4BB2E62B6D51 /* Pods-OAuth2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OAuth2Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OAuth2Tests/Pods-OAuth2Tests.release.xcconfig"; sourceTree = "<group>"; };
-		282B127420043D19005AD843 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		2897E55920041B9100BEA454 /* OAuth2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OAuth2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2897E55D20041B9100BEA454 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2897E56220041B9100BEA454 /* OAuth2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OAuth2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,14 +72,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		282B127320043D01005AD843 /* CCommonCrypto */ = {
-			isa = PBXGroup;
-			children = (
-				282B127420043D19005AD843 /* module.modulemap */,
-			);
-			path = CCommonCrypto;
-			sourceTree = "<group>";
-		};
 		2897E54F20041B9100BEA454 = {
 			isa = PBXGroup;
 			children = (
@@ -104,7 +95,6 @@
 		2897E55B20041B9100BEA454 /* OAuth2 */ = {
 			isa = PBXGroup;
 			children = (
-				282B127320043D01005AD843 /* CCommonCrypto */,
 				2897E57420041BBA00BEA454 /* OAuth2.swift */,
 				2897E57520041BBA00BEA454 /* OAuth2AccessToken.swift */,
 				2897E57920041BBA00BEA454 /* OAuth2AccessTokenStorageService.swift */,
@@ -297,10 +287,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-OAuth2Tests/Pods-OAuth2Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CommonCryptoModule/CommonCryptoModule.framework",
 				"${BUILT_PRODUCTS_DIR}/Kekka/Kekka.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CommonCryptoModule.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kekka.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -499,6 +491,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = OAuth2/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -506,7 +499,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kandelvijaya.OAuth2;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/OAuth2/CCommonCrypto";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -522,6 +515,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = OAuth2/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -529,7 +523,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kandelvijaya.OAuth2;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/OAuth2/CCommonCrypto";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

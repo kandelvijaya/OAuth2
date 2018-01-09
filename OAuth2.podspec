@@ -4,7 +4,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "OAuth2"
-  s.version      = "0.2.0"
+  s.version      = "0.3.3"
   s.summary      = "OAuth2 facilitates API interaction with simple Config"
 
   s.description  = <<-DESC
@@ -27,13 +27,9 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "9.0"
   s.source       = { :git => "https://github.com/kandelvijaya/OAuth2.git", :tag => "#{s.version}" }
 
-  s.source_files  = 'OAuth2/**/*'
+  s.source_files  = 'OAuth2/**/*.{swift,h,m}'
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4' }
 
-
-
-  s.xcconfig = { 'SWIFT_INCLUDE_PATHS' => '$(PODS_ROOT)/OAuth2/CCommonCrypto' }
-  s.preserve_paths = 'CCommonCrypto/module.modulemap'
   s.dependency "Kekka", "~> 0.6"
 
 end

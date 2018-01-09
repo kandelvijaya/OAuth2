@@ -3,7 +3,7 @@
 //
 
 import Foundation
-import CCommonCrypto
+import CommonCryptoModule
 
 /// Specifies interface to store and retrieve access token
 public protocol OAuth2AccessTokenStorageProtocol {
