@@ -4,7 +4,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "OAuth2"
-  s.version      = "0.3.3"
+  s.version      = "0.3.4"
   s.summary      = "OAuth2 facilitates API interaction with simple Config"
 
   s.description  = <<-DESC
@@ -31,5 +31,6 @@ Pod::Spec.new do |s|
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4' }
 
   s.dependency "Kekka", "~> 0.6"
+  s.dependency "CommonCryptoModule"
 
 end
