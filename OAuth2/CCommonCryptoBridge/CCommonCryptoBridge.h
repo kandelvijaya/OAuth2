@@ -6,9 +6,9 @@
 //  Copyright © 2018 com.kandelvijaya. All rights reserved.
 //
 
-#ifndef CCommonCrypto_h
-#define CCommonCrypto_h
+#ifndef __COMMONCRYPTO_BRIDGE__
+#define __COMMONCRYPTO_BRIDGE__
 
-#import <CCommonCrypto/CCommonCrypto.h>
+#include <CommonCrypto/CommonCrypto.h>
 
-#endif /* CCommonCrypto_h */
+#endif /* __COMMONCRYPTO_BRIDGE__ */
