@@ -3,7 +3,7 @@
 //
 
 import XCTest
-@testable import OAuth2
+@testable import OAuthorize2
 
 final class OAuth2FileBasedTokenStorageServiceTests: XCTestCase {
 
