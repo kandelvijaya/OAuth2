@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "9.0"
   s.source       = { :git => "https://github.com/kandelvijaya/OAuth2.git", :tag => "#{s.version}" }
 
-  s.source_files  = 'OAuth2/**/*.{swift,h,m}'
+  s.source_files  = 'OAuthorize2/**/*.{swift,h,m}'
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4' }
 
   s.dependency "Kekka", "~> 0.6"
