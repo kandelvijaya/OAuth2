@@ -4,6 +4,7 @@
 
 import Foundation
 import UIKit
+import Kekka
 
 /// Interface for any types that want to perform OAuth2 with the REST API
 public protocol OAuth2: class {
@@ -34,10 +35,10 @@ public protocol OAuth2: class {
     /// the `askForAuthorizationCode()` method.
     /// When successful, this will return AccessToken object
     /// STEP 2
-    func askForAccessToken(with authorizationCode: String) -> Promise<Result<OAuth2AccessToken>>
+    func askForAccessToken(with authorizationCode: String) -> Future<Result<OAuth2AccessToken>>
 
     /// Helper function to extract code and call into `askForAccessToken(with:)`
-    func askForAccessToken(withAuthorizationRedirectURL url: URL) -> Promise<Result<OAuth2AccessToken>>
+    func askForAccessToken(withAuthorizationRedirectURL url: URL) -> Future<Result<OAuth2AccessToken>>
 
     /// Take a mutable request and inserts access token when possible
     /// - When the access token is expired; it should perform `refeshToken` and verifies the request
@@ -71,17 +72,21 @@ extension OAuth2 {
             print("malformed url \(config.authServer)")
             return
         }
-        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
     }
 
-    func askForAccessToken(withAuthorizationRedirectURL url: URL) -> Promise<Result<OAuth2AccessToken>> {
+    func askForAccessToken(withAuthorizationRedirectURL url: URL) -> Future<Result<OAuth2AccessToken>> {
         return askForAccessToken(with: extractAuthCode(from: url))
     }
 
-    func askForAccessToken(with authorizationCode: String) -> Promise<Result<OAuth2AccessToken>> {
+    func askForAccessToken(with authorizationCode: String) -> Future<Result<OAuth2AccessToken>> {
         let request = tokenServerRequest(with: authorizationCode)
-        let promise = accessTokenNetworkService.post(withRequest: request)
-        return promise.then { response in
+        let Future = accessTokenNetworkService.post(withRequest: request)
+        return Future.then { response in
             switch response {
             case let .success(token):
                 self.accessTokenStorageService.store(token: token, for: self.config)

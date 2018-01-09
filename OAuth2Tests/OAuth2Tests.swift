@@ -4,6 +4,7 @@
 
 import XCTest
 @testable import OAuth2
+import Kekka
 
 final class OAuth2Tests: XCTestCase {
 
@@ -64,18 +65,18 @@ final class MockNetowrk: OAuth2NetworkServiceProtocol {
         case testMockError
     }
 
-    private var token: Result<OAuth2AccessToken> = .failure(MockError.testMockError)
+    private var token: Result<OAuth2AccessToken> = .failure(error: MockError.testMockError)
 
     func eventual(token: OAuth2AccessToken) {
-        self.token = .success(token)
+        self.token = .success(value: token)
     }
 
     func eventual(error: Error) {
-        self.token = .failure(error)
+        self.token = .failure(error: error)
     }
 
-    func post(withRequest urlRequest: URLRequest) -> Promise<Result<OAuth2AccessToken>> {
-        return Promise<Result<OAuth2AccessToken>> { aCompletion in
+    func post(withRequest urlRequest: URLRequest) -> Future<Result<OAuth2AccessToken>> {
+        return Future<Result<OAuth2AccessToken>> { aCompletion in
             aCompletion?(self.token)
         }
     }
