@@ -50,21 +50,21 @@ public protocol OAuth2: class {
 }
 
 
-extension OAuth2 {
+public extension OAuth2 {
 
-    var accessTokenStorageService: OAuth2AccessTokenStorageProtocol {
+    public var accessTokenStorageService: OAuth2AccessTokenStorageProtocol {
         return OAuth2FileBasedAccessTokenStorageService()
     }
 
-    var accessTokenNetworkService: OAuth2NetworkServiceProtocol {
+    public var accessTokenNetworkService: OAuth2NetworkServiceProtocol {
         return OAuthNetworkService()
     }
 
-    func isAuthorizationRequired() -> Bool {
+    public func isAuthorizationRequired() -> Bool {
         return accessTokenStorageService.retrieve(tokenFor: config) == nil
     }
 
-    func askForAuthorizationCodeIfNeeded() {
+    public func askForAuthorizationCodeIfNeeded() {
         guard isAuthorizationRequired() else { return }
         let query = "?client_id=\(config.clientId)&redirect_uri=\(config.redirectURI.absoluteString)&response_type=code&scope=\(config.scopesString)"
         let fullURL = config.authServer.absoluteString + query
@@ -79,11 +79,11 @@ extension OAuth2 {
         }
     }
 
-    func askForAccessToken(withAuthorizationRedirectURL url: URL) -> Future<Result<OAuth2AccessToken>> {
+    public func askForAccessToken(withAuthorizationRedirectURL url: URL) -> Future<Result<OAuth2AccessToken>> {
         return askForAccessToken(with: extractAuthCode(from: url))
     }
 
-    func askForAccessToken(with authorizationCode: String) -> Future<Result<OAuth2AccessToken>> {
+    public func askForAccessToken(with authorizationCode: String) -> Future<Result<OAuth2AccessToken>> {
         let request = tokenServerRequest(with: authorizationCode)
         let Future = accessTokenNetworkService.post(withRequest: request)
         return Future.then { response in
@@ -97,7 +97,7 @@ extension OAuth2 {
         }
     }
 
-    func verifyRequest(from request: NSMutableURLRequest) -> Bool {
+    public func verifyRequest(from request: NSMutableURLRequest) -> Bool {
         guard let accessToken = accessTokenStorageService.retrieve(tokenFor: config) else { return false }
         let bearerToken = "Bearer \(accessToken.accessToken)"
         request.addValue(bearerToken, forHTTPHeaderField: "Authorization")
