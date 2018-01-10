@@ -9,29 +9,44 @@ import Foundation
 public struct OAuth2Config: Codable {
 
     /// `client_id` is generated during registration of the client app
-    var clientId: String
+    public let clientId: String
 
     /// Refer to the provided scope url endpoint
     /// i.e. google developer
-    var scopes: [String]
+    public let scopes: [String]
 
     /// url for authorizationServer without the parameter fields
-    var authServer: URL
+    public let authServer: URL
 
     /// url for the tokenServer without the parameter fields
-    var tokenServer: URL
+    public let tokenServer: URL
 
     /// generated during the registration of the client app
     /// for iOS apps, navigate to info.plist and set the custom url scheme
     /// URLTypes .. URL Schemes and add a entry with this exact redirectURI
     /// When the app's custom scheme doesnot match the redirectURI,
     /// most authorization services will throw a error after authenticating owner
-    var redirectURI: URL
+    public let redirectURI: URL
 
     var scopesString: String {
         return scopes.joined(separator: " ").addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
     }
 
-    let grantType = "authorization_code"
+    /// Unless specific otherwise this will be "authorization_code" in most cases
+    public let grantType: String
+
+}
+
+
+public extension OAuth2Config {
+
+    public init(clientId: String, scopes: [String], authServer: URL, tokenServer: URL, redirectURI: URL) {
+        self.clientId = clientId
+        self.scopes = scopes
+        self.authServer = authServer
+        self.tokenServer = tokenServer
+        self.redirectURI = redirectURI
+        self.grantType = "authorization_code"
+    }
 
 }
