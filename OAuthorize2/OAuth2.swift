@@ -125,7 +125,7 @@ public extension OAuth2 {
         mutableRequest.httpMethod = "POST"
         var bodyData = "code=\(authorizationCode)&client_id=\(config.clientId)&redirect_uri=\(config.redirectURI.absoluteString)&grant_type=\(config.grantType)"
         if let secret = config.clientSecret {
-            bodyData += "?client_secret=\(secret)"
+            bodyData += "&client_secret=\(secret)"
         }
         mutableRequest.httpBody = bodyData.data(using: .utf8)!
         return mutableRequest as URLRequest
