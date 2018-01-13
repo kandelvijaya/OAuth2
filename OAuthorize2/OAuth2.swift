@@ -123,7 +123,10 @@ public extension OAuth2 {
         let mutableRequest = NSMutableURLRequest(url: config.tokenServer)
         mutableRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         mutableRequest.httpMethod = "POST"
-        let bodyData = "code=\(authorizationCode)&client_id=\(config.clientId)&redirect_uri=\(config.redirectURI.absoluteString)&grant_type=\(config.grantType)"
+        var bodyData = "code=\(authorizationCode)&client_id=\(config.clientId)&redirect_uri=\(config.redirectURI.absoluteString)&grant_type=\(config.grantType)"
+        if let secret = config.clientSecret {
+            bodyData += "?client_secret=\(secret)"
+        }
         mutableRequest.httpBody = bodyData.data(using: .utf8)!
         return mutableRequest as URLRequest
     }
