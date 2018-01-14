@@ -17,6 +17,7 @@
 		2808105220057CEA00AA0449 /* OAuth2AccessTokenStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2808104D20057CE900AA0449 /* OAuth2AccessTokenStorageService.swift */; };
 		2808105320057CEA00AA0449 /* OAuth2NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2808104E20057CEA00AA0449 /* OAuth2NetworkService.swift */; };
 		2808105420057CEA00AA0449 /* OAuth2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2808104F20057CEA00AA0449 /* OAuth2.swift */; };
+		28736F64200C142500E6C068 /* OAuth2Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28736F63200C142500E6C068 /* OAuth2Error.swift */; };
 		498B6517467E07E0E8017BC0 /* Pods_OAuthorize2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB7DDE8F3403A7024D088CDF /* Pods_OAuthorize2.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		2808104D20057CE900AA0449 /* OAuth2AccessTokenStorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth2AccessTokenStorageService.swift; sourceTree = "<group>"; };
 		2808104E20057CEA00AA0449 /* OAuth2NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth2NetworkService.swift; sourceTree = "<group>"; };
 		2808104F20057CEA00AA0449 /* OAuth2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth2.swift; sourceTree = "<group>"; };
+		28736F63200C142500E6C068 /* OAuth2Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2Error.swift; sourceTree = "<group>"; };
 		4FB2BD0E4CAB3DAE3DE8D463 /* Pods-OAuthorize2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OAuthorize2Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OAuthorize2Tests/Pods-OAuthorize2Tests.release.xcconfig"; sourceTree = "<group>"; };
 		50C54238CD0C68FEF3939563 /* Pods-OAuthorize2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OAuthorize2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OAuthorize2/Pods-OAuthorize2.debug.xcconfig"; sourceTree = "<group>"; };
 		60969AD3EDE68CFCBDCB3F73 /* Pods-OAuthorize2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OAuthorize2Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OAuthorize2Tests/Pods-OAuthorize2Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				2808104F20057CEA00AA0449 /* OAuth2.swift */,
+				28736F63200C142500E6C068 /* OAuth2Error.swift */,
 				2808104C20057CE900AA0449 /* OAuth2AccessToken.swift */,
 				2808104D20057CE900AA0449 /* OAuth2AccessTokenStorageService.swift */,
 				2808104B20057CE900AA0449 /* OAuth2Config.swift */,
@@ -345,6 +348,7 @@
 				2808105120057CEA00AA0449 /* OAuth2AccessToken.swift in Sources */,
 				2808105020057CEA00AA0449 /* OAuth2Config.swift in Sources */,
 				2808105420057CEA00AA0449 /* OAuth2.swift in Sources */,
+				28736F64200C142500E6C068 /* OAuth2Error.swift in Sources */,
 				2808105220057CEA00AA0449 /* OAuth2AccessTokenStorageService.swift in Sources */,
 				2808105320057CEA00AA0449 /* OAuth2NetworkService.swift in Sources */,
 			);

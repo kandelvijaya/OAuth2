@@ -43,7 +43,7 @@ final class OAuth2Tests: XCTestCase {
 
 
 final class OAuthMock: OAuth2 {
-
+    
     var config: OAuth2Config {
         let clientId = "clientId"
         let scopes = ["username", "password"]

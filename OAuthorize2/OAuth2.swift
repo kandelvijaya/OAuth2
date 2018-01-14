@@ -45,7 +45,10 @@ public protocol OAuth2: class {
     /// - When the access token is not found; it should perform `askForAuthorization` and returns nil immediately
     ///   It is the client that has to call `verifiedRequest` after the authorization succeeds.
     /// - STEP 3
-    func verifyRequest(from request: NSMutableURLRequest) -> Bool
+    func verifyRequest(from request: NSMutableURLRequest) -> Result<NSMutableURLRequest>
+
+    /// Aks for accessToken with the use of previously stored refresh token
+    func refreshAccessToken() -> Future<Result<OAuth2AccessToken>>
 
 }
 
@@ -85,8 +88,12 @@ public extension OAuth2 {
 
     public func askForAccessToken(with authorizationCode: String) -> Future<Result<OAuth2AccessToken>> {
         let request = tokenServerRequest(with: authorizationCode)
-        let Future = accessTokenNetworkService.post(withRequest: request)
-        return Future.then { response in
+        return fetchStoreAccessToken(with: request)
+    }
+
+    private func fetchStoreAccessToken(with request: URLRequest) -> Future<Result<OAuth2AccessToken>> {
+        let future = accessTokenNetworkService.post(withRequest: request)
+        return future.then { response in
             switch response {
             case let .success(token):
                 self.accessTokenStorageService.store(token: token, for: self.config)
@@ -97,11 +104,13 @@ public extension OAuth2 {
         }
     }
 
-    public func verifyRequest(from request: NSMutableURLRequest) -> Bool {
-        guard let accessToken = accessTokenStorageService.retrieve(tokenFor: config) else { return false }
+    public func verifyRequest(from request: NSMutableURLRequest) -> Result<NSMutableURLRequest> {
+        guard let accessToken = accessTokenStorageService.retrieve(tokenFor: config) else {
+            return .failure(error: OAuth2Error.accessTokenNotFound)
+        }
         let bearerToken = "Bearer \(accessToken.accessToken)"
         request.addValue(bearerToken, forHTTPHeaderField: "Authorization")
-        return true
+        return .success(value: request)
     }
 
     // MARK:- Private helper functions
@@ -120,15 +129,35 @@ public extension OAuth2 {
     }
 
     private func tokenServerRequest(with authorizationCode: String) -> URLRequest {
-        let mutableRequest = NSMutableURLRequest(url: config.tokenServer)
-        mutableRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        mutableRequest.httpMethod = "POST"
         var bodyData = "code=\(authorizationCode)&client_id=\(config.clientId)&redirect_uri=\(config.redirectURI.absoluteString)&grant_type=\(config.grantType)"
         if let secret = config.clientSecret {
             bodyData += "&client_secret=\(secret)"
         }
+        return canonicalRequest(with: bodyData)
+    }
+
+    private func canonicalRequest(with bodyData: String) -> URLRequest {
+        let mutableRequest = NSMutableURLRequest(url: config.tokenServer)
+        mutableRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        mutableRequest.httpMethod = "POST"
         mutableRequest.httpBody = bodyData.data(using: .utf8)!
         return mutableRequest as URLRequest
+    }
+
+    private func tokenServerRefreshTokenRequest(with refreshToken: String) -> URLRequest {
+        var bodyData = "client_id=\(config.clientId)&grant_type=refresh_token&refresh_token=\(refreshToken)"
+        if let secret = config.clientSecret {
+            bodyData += "&client_secret=\(secret)"
+        }
+        return canonicalRequest(with: bodyData)
+    }
+
+    public func refreshAccessToken() -> Future<Result<OAuth2AccessToken>> {
+        guard let refreshToken = accessTokenStorageService.retrieve(tokenFor: config)?.refreshToken else {
+            return Future<Result<OAuth2AccessToken>> { $0?(.failure(error: OAuth2Error.refreshTokenNotFound)) }
+        }
+        let request = tokenServerRefreshTokenRequest(with: refreshToken)
+        return fetchStoreAccessToken(with: request)
     }
 
 }
