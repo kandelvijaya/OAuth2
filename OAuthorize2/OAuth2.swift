@@ -36,9 +36,8 @@ public protocol OAuth2: class {
     /// When successful, this will return AccessToken object
     /// STEP 2
     func askForAccessToken(with authorizationCode: String) -> Future<Result<OAuth2AccessToken>>
+    func askForAccessToken(with authorizationCode: String, onCompletion: @escaping ((OAuth2AccessToken?) -> Void))
 
-    /// Helper function to extract code and call into `askForAccessToken(with:)`
-    func askForAccessToken(withAuthorizationRedirectURL url: URL) -> Future<Result<OAuth2AccessToken>>
 
     /// Take a mutable request and inserts access token when possible
     /// - When the access token is expired; it should perform `refeshToken` and verifies the request
@@ -49,6 +48,10 @@ public protocol OAuth2: class {
 
     /// Aks for accessToken with the use of previously stored refresh token
     func refreshAccessToken() -> Future<Result<OAuth2AccessToken>>
+    func refreshAccessToken(_ onCompletion: @escaping ((OAuth2AccessToken?) -> Void))
+
+    // MARK:- utility
+    func extractAuthCode(from url: URL) -> String?
 
 }
 
@@ -82,13 +85,19 @@ public extension OAuth2 {
         }
     }
 
-    public func askForAccessToken(withAuthorizationRedirectURL url: URL) -> Future<Result<OAuth2AccessToken>> {
-        return askForAccessToken(with: extractAuthCode(from: url))
-    }
-
     public func askForAccessToken(with authorizationCode: String) -> Future<Result<OAuth2AccessToken>> {
         let request = tokenServerRequest(with: authorizationCode)
         return fetchStoreAccessToken(with: request)
+    }
+
+    func askForAccessToken(with authorizationCode: String, onCompletion: @escaping ((OAuth2AccessToken?) -> Void)) {
+        askForAccessToken(with: authorizationCode).then { res in
+            if case let .success(v) = res {
+                onCompletion(v)
+            } else {
+                onCompletion(nil)
+            }
+        }.execute()
     }
 
     private func fetchStoreAccessToken(with request: URLRequest) -> Future<Result<OAuth2AccessToken>> {
@@ -114,7 +123,9 @@ public extension OAuth2 {
     }
 
     // MARK:- Private helper functions
-    private func extractAuthCode(from url: URL) -> String {
+
+    /// checks if the url contains authorization code
+    public func extractAuthCode(from url: URL) -> String? {
         if var q = url.query {
             q.removeSubrange(q.range(of: "code=")!)
             return q
@@ -123,8 +134,7 @@ public extension OAuth2 {
             let code = str.split(separator: "?").first.map(String.init) ?? String(str)
             return code
         } else {
-            // Dont know where the code is or if there is a code
-            fatalError("Didnt find code in the url")
+            return nil
         }
     }
 
@@ -158,6 +168,16 @@ public extension OAuth2 {
         }
         let request = tokenServerRefreshTokenRequest(with: refreshToken)
         return fetchStoreAccessToken(with: request)
+    }
+
+    func refreshAccessToken(_ onCompletion: @escaping ((OAuth2AccessToken?) -> Void)) {
+        refreshAccessToken().then { res in
+            if case let .success(v) = res {
+                onCompletion(v)
+            } else {
+                onCompletion(nil)
+            }
+        }.execute()
     }
 
 }
