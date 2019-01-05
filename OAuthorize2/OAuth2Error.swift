@@ -12,7 +12,8 @@ public enum OAuth2Error: Error {
 
     case refreshTokenNotFound
     case accessTokenNotFound
-    case networkFailed
-    case dataConversionFailed
+    case unknownNetworkError
+    case networkFailed(with: Error)
+    case dataConversionFailed(with: Error)
 
 }
