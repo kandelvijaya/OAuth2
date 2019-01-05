@@ -4,7 +4,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "OAuthorize2"
-  s.version      = "0.1.5"
+  s.version      = "0.3.5"
   s.summary      = "OAuth(orize)2 facilitates API interaction with simple Config"
 
   s.description  = <<-DESC
@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
   s.source_files  = 'OAuthorize2/**/*.{swift,h,m}'
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4' }
 
-  s.dependency "Kekka", "~> 0.6"
+  s.dependency "Kekka"
   s.dependency "CommonCryptoModule"
 
 end
