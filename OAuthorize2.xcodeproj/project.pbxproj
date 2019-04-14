@@ -183,7 +183,6 @@
 				2808102820057A8500AA0449 /* Sources */,
 				2808102920057A8500AA0449 /* Frameworks */,
 				2808102A20057A8500AA0449 /* Resources */,
-				A322D8D9F403DBB375E66C81 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -269,26 +268,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A322D8D9F403DBB375E66C81 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-OAuthorize2Tests/Pods-OAuthorize2Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CommonCryptoModule/CommonCryptoModule.framework",
-				"${BUILT_PRODUCTS_DIR}/Kekka/Kekka.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CommonCryptoModule.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kekka.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OAuthorize2Tests/Pods-OAuthorize2Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D2AEABABC02DB25A942074C8 /* [CP] Check Pods Manifest.lock */ = {

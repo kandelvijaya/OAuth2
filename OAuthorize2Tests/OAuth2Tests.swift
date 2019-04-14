@@ -65,14 +65,14 @@ final class MockNetowrk: OAuth2NetworkServiceProtocol {
         case testMockError
     }
 
-    private var token: Result<OAuth2AccessToken> = .failure(error: MockError.testMockError)
+    private var token: Result<OAuth2AccessToken> = .failure(MockError.testMockError)
 
     func eventual(token: OAuth2AccessToken) {
-        self.token = .success(value: token)
+        self.token = .success(token)
     }
 
     func eventual(error: Error) {
-        self.token = .failure(error: error)
+        self.token = .failure(error)
     }
 
     func post(withRequest urlRequest: URLRequest) -> Future<Result<OAuth2AccessToken>> {

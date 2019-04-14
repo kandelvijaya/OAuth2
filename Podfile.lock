@@ -1,6 +1,6 @@
 PODS:
   - CommonCryptoModule (1.0.2)
-  - Kekka (0.6.0)
+  - Kekka (0.8.1)
 
 DEPENDENCIES:
   - CommonCryptoModule
@@ -13,8 +13,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   CommonCryptoModule: 63a68b57abed79655b3a01011419bf037a05b0a0
-  Kekka: 62a6b4822a3bb277e70ee471cc4d50328ce19a0f
+  Kekka: a3d3021cca1200f77ba1cfba0329242ffb48c8c3
 
 PODFILE CHECKSUM: c440ac9a7ca43fc2c0b1dddbdac86ef4582c61e3
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1
