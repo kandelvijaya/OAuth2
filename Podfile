@@ -11,7 +11,8 @@ target 'OAuthorize2' do
 
   target 'OAuthorize2Tests' do
     inherit! :search_paths
-    # Pods for testing
+    pod 'CommonCryptoModule'
+    pod 'Kekka'
   end
 
 end
